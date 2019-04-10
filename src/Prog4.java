@@ -26,11 +26,13 @@ public class Prog4 {
      */
     public static void main(String[] args) {
         
+    	/*
         //for eclipse testing
         args = new String[3];
         args[0] = "6911";
         args[1] = "6947";
         args[2] = "-";
+        */
         
         //step 1
         //done when parsing arguments
@@ -96,7 +98,7 @@ public class Prog4 {
         
         //final output
         System.out.format("Binary: %s\n"
-                + "Decimal: %s\n", padLeft(H.toString(2), n), H.toString());
+                + "Decimal: %s\n", H.toString(2), H.toString());
     }
     
     /**
@@ -187,10 +189,9 @@ public class Prog4 {
      * Print command line instructions and exit program
      */
     private static void argsError() {
-        return;
-        //System.err.println("Please use 3 arguments [prime number] [prime number]"
-                //+ " [2-6 character message]");
-        //System.exit(-1);
+        System.err.println("Please use 3 arguments [prime number] [prime number]"
+                + " [2-6 character message]");
+        System.exit(1);
     }
 
 }
