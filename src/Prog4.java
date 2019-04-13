@@ -14,7 +14,7 @@ public class Prog4 {
     static private String message = null;
     
     /**
-     * BigInt value of all the characters from the message
+     * BigInt value of the product of the two primes
      */
     static private BigInteger M;
 
@@ -26,13 +26,12 @@ public class Prog4 {
      */
     public static void main(String[] args) {
         
-    	/*
         //for eclipse testing
-        args = new String[3];
-        args[0] = "6911";
-        args[1] = "6947";
-        args[2] = "-";
-        */
+        //args = new String[3];
+        //args[0] = "523";
+        //args[1] = "541";
+        //args[2] = "-crypt";
+        
         
         //step 1
         //done when parsing arguments
@@ -47,10 +46,11 @@ public class Prog4 {
         //step 4
         int b = message.length();
         int n2 = n/2;
-        message = padRight(message, n2);
+        int t = message.length()/n2;
+        if (message.length()%n2!=0) t++;
+        message = padRight(message, t*n2);
         
         //step 5
-        int t = message.length()/n2;
         String[] x = new String[t+1];
         for (int step = 0; step < t; step++)
             x[step] = message.substring(step*n2, (step+1)*n2);
@@ -74,17 +74,14 @@ public class Prog4 {
         
         //step 9
         
-        //increase t to reflect the true size of the x/y arrays
-        t++;
-        
         //used for mod to create G
         BigInteger nBits = new BigInteger(
                 Double.toString(Math.pow(2, n)).replace(".0", ""));
         
-        for (int step = 0; step < t; step++) {
+        for (String yStep:y) {
             
             //holds BigInt value for current y string
-            BigInteger Y = new BigInteger(y[step], 2);
+            BigInteger Y = new BigInteger(yStep, 2);
             
             BigInteger F = H.xor(Y);
             F = F.or(A);
@@ -150,11 +147,18 @@ public class Prog4 {
         }
         
         //parse message into binary
+        String big_int_seed = "";
+        for (char letter: message.toCharArray())
+            big_int_seed += padLeft(Integer.toBinaryString(letter), 7);
+        message = big_int_seed;
+        
+        /* old code that removes leading 0s from first char
         String big_int_seed = Integer.toBinaryString(message.charAt(0));
         for (int step = 1; step < message.length(); step++)
             big_int_seed += padLeft(Integer.toBinaryString(
                     message.charAt(step)), 7);
         message = big_int_seed;
+        */
         
         //return n
         int n = m/16;
