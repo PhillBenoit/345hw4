@@ -27,7 +27,7 @@ public class Prog4 {
     public static void main(String[] args) {
         
         /*
-        for eclipse testing
+        //for eclipse testing
         args = new String[3];
         args[0] = "52026427209861890870348378323378284729698009109265013619678"
                 + "72059486045713145450116712488685004691423";
@@ -78,7 +78,6 @@ public class Prog4 {
         //step 9
         
         //used for mod to create G
-        System.out.println(Math.pow(2, n));
         BigInteger nBits = BigInteger.valueOf((long)Math.pow(2, n));
         
         for (String yStep:y) {
