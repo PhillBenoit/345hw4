@@ -26,12 +26,15 @@ public class Prog4 {
      */
     public static void main(String[] args) {
         
-        //for eclipse testing
-        //args = new String[3];
-        //args[0] = "523";
-        //args[1] = "541";
-        //args[2] = "-crypt";
-        
+        /*
+        for eclipse testing
+        args = new String[3];
+        args[0] = "52026427209861890870348378323378284729698009109265013619678"
+                + "72059486045713145450116712488685004691423";
+        args[1] = "72126101472954749095445237850434924099693821481867654600825"
+                + "00085393519556525921455588705423020751421";
+        args[2] = "-crypt";
+        */
         
         //step 1
         //done when parsing arguments
@@ -75,8 +78,8 @@ public class Prog4 {
         //step 9
         
         //used for mod to create G
-        BigInteger nBits = new BigInteger(
-                Double.toString(Math.pow(2, n)).replace(".0", ""));
+        System.out.println(Math.pow(2, n));
+        BigInteger nBits = BigInteger.valueOf((long)Math.pow(2, n));
         
         for (String yStep:y) {
             
