@@ -78,7 +78,7 @@ public class Prog4 {
         //step 9
         
         //used for mod to create G
-        BigInteger nBits = BigInteger.valueOf((long)Math.pow(2, n));
+        BigInteger nBits = BigInteger.valueOf(2).pow(n);
         
         for (String yStep:y) {
             
